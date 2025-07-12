@@ -1,0 +1,463 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================================================== */
+
+:root {
+    /* Main Palette */
+    --bg-color: #171822;
+    --card-bg: #2C2D3B;
+    --input-bg: #22232E;
+    --hover-color: #3B3C4F;
+    --border-color: #3F405A;
+
+    /* Text Palette */
+    --text-color: #E0E0E0;
+    --secondary-text-color: #A0A0A0;
+
+    /* Accent & Interactive Palette */
+    --primary-blue: #5C62F8;
+    --primary-blue-darker: #4A50E0; /* For button hovers */
+    --primary-blue-shadow: rgba(92, 98, 248, 0.3);
+
+    /* Mention Palette */
+    --mention-text-color: #8a8eff;
+    --mention-bg-color: rgba(92, 97, 248, 0.17);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. LAYOUT COMPONENTS (Post, Author, Footer)
+   ========================================================================== */
+
+.post {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.author-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.author-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.site-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-text-color);
+    font-size: 14px;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY & TEXT ELEMENTS
+   ========================================================================== */
+
+.main-title {
+    color: var(--text-color);
+    font-size: 28px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.post {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.comment-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.mention-username {
+    color: var(--mention-text-color);
+    font-weight: bold;
+    background-color: var(--mention-bg-color);
+    padding: 1px 4px;
+    border-radius: 4px;
+}
+
+.site-footer strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.site-footer a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.author-links a {
+    color: var(--secondary-text-color);
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.author-links a:hover {
+    color: var(--primary-blue);
+    transform: scale(1.1);
+}
+
+.site-footer a:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   4. FORMS & USER INPUTS
+   ========================================================================== */
+
+/* --- Main Comment Form --- */
+.comment-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 35px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+#usernameInput,
+#commentText {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+#commentText {
+    resize: none;
+}
+
+#usernameInput:focus,
+#commentText:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px var(--primary-blue-shadow);
+}
+
+#postCommentBtn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    align-self: flex-end;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#postCommentBtn:hover {
+    background-color: var(--primary-blue-darker);
+    transform: translateY(-1px);
+}
+
+#postCommentBtn:active {
+    transform: translateY(0);
+}
+
+/* --- Reply Form --- */
+.reply-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    padding-left: 20px;
+    border-left: 2px solid var(--border-color);
+}
+
+.reply-input-section .reply-username-input,
+.reply-input-section .reply-text-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+    resize: none;
+}
+
+.reply-input-section .reply-username-input:focus,
+.reply-input-section .reply-text-input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px var(--primary-blue-shadow);
+}
+
+.reply-input-section button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    align-self: flex-end;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.reply-input-section button:hover {
+    background-color: var(--primary-blue-darker);
+    transform: translateY(-1px);
+}
+
+/* --- Placeholders --- */
+#usernameInput::placeholder,
+#commentText::placeholder,
+.reply-input-section .reply-username-input::placeholder {
+    color: var(--secondary-text-color);
+}
+
+/* --- Character Counters --- */
+.char-counter {
+    font-size: 12px;
+    color: var(--secondary-text-color);
+    text-align: right;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    padding-right: 5px;
+}
+
+.reply-input-section .char-counter {
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   5. COMMENTS & REPLIES STRUCTURE
+   ========================================================================== */
+
+.comments-container {
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+}
+
+.comment {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.comment-username {
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-right: 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.comment-time {
+    color: var(--secondary-text-color);
+    font-size: 13px;
+}
+
+.post-actions,
+.comment-actions {
+    display: flex;
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    align-items: center;
+}
+
+.post-actions {
+    justify-content: space-around;
+}
+
+.comment-actions {
+    gap: 25px;
+}
+
+.post-actions span,
+.comment-actions span {
+    cursor: pointer;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.post-actions span:hover,
+.comment-actions span:hover {
+    color: var(--primary-blue);
+}
+
+.post-actions svg,
+.comment-actions svg {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.replies {
+    margin-top: 15px;
+    padding-left: 25px;
+    border-left: 2px solid var(--border-color);
+}
+
+.reply-comment {
+    background-color: var(--hover-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   6. UI COMPONENTS & SPECIAL EFFECTS
+   ========================================================================== */
+
+.hidden {
+    display: none;
+}
+
+.show-more-replies-btn {
+    background-color: transparent;
+    color: var(--primary-blue);
+    border: none;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 10px;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.show-more-replies-btn:hover {
+    text-decoration: underline;
+}
+
+.show-more-replies-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* --- Typing Animation --- */
+#typing-text::after {
+    content: '|';
+    margin-left: 3px;
+}
+
+#typing-text.blinking-cursor::after {
+    animation: blink 0.9s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    body {
+        background-color: var(--card-bg);
+        padding: 0px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+    
+    .main-title {
+        font-size: 22px;
+        padding-bottom: 15px;
+    }
+    
+    #usernameInput,
+    #commentText,
+    .reply-input-section .reply-username-input,
+    .reply-input-section .reply-text-input {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .comment-text {
+        font-size: 14px;
+    }
+
+    .replies,
+    .reply-input-section {
+        padding-left: 15px;
+    }
+
+    .comment-actions {
+        gap: 20px;
+    }
+}
