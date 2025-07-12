@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Starting placeholder replacement..."
+
+TARGET_FILE="public/script.js"
+
+sed -i "s|__API_KEY__|$FIREBASE_API_KEY|g" $TARGET_FILE
+sed -i "s|__AUTH_DOMAIN__|$FIREBASE_AUTH_DOMAIN|g" $TARGET_FILE
+sed -i "s|__DATABASE_URL__|$FIREBASE_DATABASE_URL|g" $TARGET_FILE
+sed -i "s|__PROJECT_ID__|$FIREBASE_PROJECT_ID|g" $TARGET_FILE
+sed -i "s|__STORAGE_BUCKET__|$FIREBASE_STORAGE_BUCKET|g" $TARGET_FILE
+sed -i "s|__MESSAGING_SENDER_ID__|$FIREBASE_MESSAGING_SENDER_ID|g" $TARGET_FILE
+sed -i "s|__APP_ID__|$FIREBASE_APP_ID|g" $TARGET_FILE
+sed -i "s|__MEASUREMENT_ID__|$FIREBASE_MEASUREMENT_ID|g" $TARGET_FILE
+sed -i "s|__SPECIAL_USERNAME__|$SPECIAL_USERNAME|g" $TARGET_FILE
+sed -i "s|__OWNER_DISPLAY_NAME__|$OWNER_DISPLAY_NAME|g" $TARGET_FILE
+
+echo "Placeholder replacement complete."
