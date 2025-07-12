@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Owner information for special display.
         const ownerInfo = {
-            secretName: "__SPECIAL_USERNAME__"
+            secretName: "__SPECIAL_USERNAME__",
             displayName: "__OWNER_DISPLAY_NAME__"
         };
 
