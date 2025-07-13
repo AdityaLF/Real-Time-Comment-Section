@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!typingTextElement) return; // Exit if the element doesn't exist.
 
             // Configuration
-            const baseText = "This is a live demonstration of a real-time comment system built with Firebase and Node.js.";
+            const baseText = "This is a live demonstration of a real-time comment system, designed for live interaction.";
             const dynamicText = " Leave a comment...";
             const typingSpeed = 30;
             const erasingSpeed = 25;
