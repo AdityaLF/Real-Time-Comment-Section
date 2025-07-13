@@ -1,8 +1,8 @@
-# Real-Time Comment Section
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Real Time Comment Section
 
 This is a real-time comment and reply system project built with Vanilla JavaScript and Firebase Realtime Database. This project is designed to be deployed as a static site on modern platforms like Vercel or Netlify, with secure configuration management using Environment Variables.
+
+👉 [View Live Preview](https://real-time-comment-section.vercel.app/)  
 
 ## ✨ Key Features
 
@@ -26,16 +26,18 @@ git clone https://github.com/AdityaLF/Real-Time-Comment-Section.git
 cd Real-Time-Comment-Section
 ```
 
-To deploy this project, follow these steps:
-
 #### Set Up Firebase
 * Create a new project in the [Firebase Console](https://console.firebase.google.com/).
 * Create a **Realtime Database**.
 * Copy your project credentials from **Project settings > General**. You will need them for the next step.
 
 #### Deploy to Vercel
-1.  **Fork** or **Clone** this repository.
-2.  Log in to **Vercel** and create a new project by connecting your Git repository.
+1.  Log in to **Vercel** and create a new project by connecting your Git repository.
+2.  **Configure Build Settings**: Still in **Settings**, go to **General** and configure the following:
+    * **FRAMEWORK PRESET**: `Other`
+    * **BUILD COMMAND**: `bash build.sh`
+    * **PUBLISH DIRECTORY**: `public`
+
 3.  **Configure Environment Variables**: Go to **Settings > Environment Variables**. Add all of the following variables with the values from your Firebase project.
 
     | Variable Name          | Example Value                 |
@@ -51,16 +53,7 @@ To deploy this project, follow these steps:
     | `SPECIAL_USERNAME`     | `YourSecretUsername`          |
     | `OWNER_DISPLAY_NAME`   | `YourDisplayName`             |
 
-4.  **Configure Build Settings**: Still in **Settings**, go to **General** and configure the following:
-    * **FRAMEWORK PRESET**: `Other`
-    * **BUILD COMMAND**:
-       ```bash
-      sed -i "s|__API_KEY__|$FIREBASE_API_KEY|g" public/script.js && sed -i "s|__AUTH_DOMAIN__|$FIREBASE_AUTH_DOMAIN|g" public/script.js && sed -i "s|__DATABASE_URL__|$FIREBASE_DATABASE_URL|g" public/script.js && sed -i "s|__PROJECT_ID__|$FIREBASE_PROJECT_ID|g" public/script.js && sed -i "s|__STORAGE_BUCKET__|$FIREBASE_STORAGE_BUCKET|g" public/script.js && sed -i "s|__MESSAGING_SENDER_ID__|$FIREBASE_MESSAGING_SENDER_ID|g" public/script.js && sed -i "s|__APP_ID__|$FIREBASE_APP_ID|g" public/script.js && sed -i "s|__MEASUREMENT_ID__|$FIREBASE_MEASUREMENT_ID|g" public/script.js && sed -i "s|__SPECIAL_USERNAME__|$SPECIAL_USERNAME|g" public/script.js && sed -i "s|__OWNER_DISPLAY_NAME__|$OWNER_DISPLAY_NAME|g" public/script.js
-       ```
-   
-    * **PUBLISH DIRECTORY**: `public`
-
-5.  Click **Save**, and Vercel will automatically start the build and deployment process.
+4.  Click **Save**, and Vercel will automatically start the build and deployment process.
 
 ## 💻 Local Development
 
